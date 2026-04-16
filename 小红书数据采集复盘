@@ -1,0 +1,44 @@
+# 报错与处理
+## 1. 数据收集部分
+### 错误一
+- 代码
+	```python
+	Module NotFound Error
+	```
+- 错误分析
+	```
+	最基础的错误, 刚开始模块全都下载到了c盘中的环境里, 而自己代码的解释器环境是D盘中自己创建的conda环境
+	```
+- 解决办法
+	```
+	在项目所在conda环境中重新安装所需模块
+	```
+	## 2. 生成可视化饼图部分
+	### 错误二
+- 代码
+	```python
+	pandas.errors.EmptyDataError: No columns to parse from file
+	```
+- 错误分析
+	```
+	需要保证文件的编码格式相同或者兼容
+	```
+- 解决办法
+	```python
+	创建文件对象时规定编码格式
+	f=open('data.csv',mode='w',encoding='utf-8-sig',newline='')
+	```
+## 3.生成可视化词云部分
+	### 错误三
+- 代码
+	```python
+	ValueError: Only supported for TrueType fonts
+	```
+- 错误分析
+	```
+	之前在别的项目里生成过同名文件,因此可能没选到正确的文件
+	```
+- 解决办法
+	```python
+	找到并输入csv格式文件的具体路径
+	df = pd.read_csv('D:/ai study/python exercise/data.csv')
